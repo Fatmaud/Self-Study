@@ -1,0 +1,48 @@
+@import "../../scss/variable";
+@import "../../scss/mixins";
+.navbar {
+  background-color: $navbarBgColor;
+  display: flex;
+  justify-content: space-between; //logo ile linkleri ayirdik
+  align-items: center;
+  position: fixed;
+  top: 0; //position-fixed in üstte paysiz olmasi icin
+  width: 100%; // navbar position-fixed yapinca div kadar yer kapladi- genislikle tüm sirayi kapladi
+  z-index: 4;
+  .links {
+    display: flex;
+    font-size: 1.5rem;
+    gap: 10px;
+
+    a {
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+      padding: 0.5rem;
+
+      // &:hover{
+      //   background-color: ;
+      //   color: ;
+      //border-radius: ;
+      // }
+    }
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  @include media-xsm {
+    .links {
+      flex-direction: column;
+      gap: 0px;
+      font-size: 1.2rem;
+    }
+  }
+
+  @include media-lg {
+    .links {
+      flex-direction: row;
+    }
+  }
+}

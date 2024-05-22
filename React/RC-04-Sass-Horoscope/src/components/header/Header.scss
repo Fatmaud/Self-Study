@@ -1,0 +1,47 @@
+//! sadece variable tarzı scss ler ($ile kendi stilimi topladığım yer), nereden çağırılacklarsa oraya import edilmeli
+
+@import "../../scss/variable";
+@import "../../scss/mixins";
+
+.header {
+  //border: 2px solid white;
+  background-color: $bodyBgColor;
+  margin-block-start: 6rem;
+  padding: 0.5rem;
+  padding-block-end: 2rem;
+  text-align: center;
+
+  .title {
+    //background-color: $HeaderBgColor;
+    color: rgb(67, 63, 63);
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.2rem;
+
+    animation: flicker 0.8s ease-in-out alternate infinite;
+    // ease-in-out (olmazsa hızlı geçiş olur)  alternate (olmazsa kalp atışı gibi sert geçiş olur); beraberce yavaşlığı sağlıyor, birden geçiş olmuyor, infinite, sayfa kapanana kadar sonsuz kendi kendine
+
+    &:hover {
+      color: black;
+      cursor: pointer;
+    }
+
+    transition: all 0.5s ease-in-out;
+  }
+
+  @keyframes flicker {
+    0% {
+      opacity: 0.5;
+      text-shadow: 2px 2px 10px rgb(212, 169, 169);
+    }
+    100% {
+      opacity: 0.8;
+      text-shadow: 2px 2px 10px rgb(212, 169, 169);
+    }
+  }
+
+  // @include media-xsm {
+  //   margin-block-start: 6rem;
+  // }
+}

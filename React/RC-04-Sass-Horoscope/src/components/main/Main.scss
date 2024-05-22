@@ -1,0 +1,92 @@
+@import "../../scss/variable";
+@import "../../scss/mixins";
+
+.card-container {
+  background-color: $bodyBgColor;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 3rem;
+
+  .cards {
+    //border: 2px solid red;
+    width: 500px;
+    height: 350px;
+    position: relative; //basllik ve tarihin positionlarini ayarlamak icin onlarin kapsayicisina relative verdik.
+    overflow: hidden;
+
+    &:hover .description {
+      transform: translateY(
+        0%
+      ); //en son hover olunca description (paragraf) eski haline dönsün
+    }
+
+    .title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: rgb(207, 157, 95);
+      border-radius: 10px;
+      font-size: 0.7rem;
+      padding: 0.5rem;
+    }
+    .date {
+      //border: 2px solid red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: rgb(207, 157, 95);
+      font-size: 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      z-index: 2;
+    }
+  }
+  &:hover img {
+    opacity: 0.5;
+  }
+  img {
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover; //resmi icine yayar
+    //(&:hover{}-->buraya da yapabilirdik.)
+  }
+
+  .description {
+    color: bisque;
+    width: 500px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: rgba(1, 1, 1, 0.8);
+    text-align: justify;
+    font-size: 1.5rem;
+    max-height: 75%;
+    transform: translateY(
+      100%
+    ); //ilk önce paragrafin 100% ünü cards in altina indirdik.
+    transition: transform 0.9s ease-in-out;
+    overflow: auto;
+    z-index: 3;
+    &::-webkit-scrollbar {
+      display: none;
+      // description da scrollbar görünmesin, yazi scroll etsin.
+    }
+  }
+
+  @include media-xsm {
+    .card-container {
+      flex-direction: column;
+    }
+  }
+  @include media-lg {
+    .card-container {
+      flex-direction: row;
+    }
+  }
+}

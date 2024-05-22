@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(135, 42, 42);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*! PlayerCard Componentinin Sytle'i:  */
+
+.card-container {
+  border: 2px solid black;
+  background-image: url(" https://p4.wallpaperbetter.com/wallpaper/661/973/110/cool-nba-logo-wallpaper-preview.jpg");
+}
+
+.player-card {
+  height: 400px;
+  max-width: 280px;
+}
+
+.player-card:hover {
+  box-shadow: 3px 3px 20px 5px rgb(0, 0, 0, 0.5);
+}
+
+.player-logo {
+  height: 350px;
+  transition: transform 0.8s;
+  /* alttaki scale olayinin yavasca olmasi icin, ve logo kücüldügü icin burada transsition veriyrz */
+}
+
+.player-card:hover .player-logo {
+  transform: scale(0.95);
+}
