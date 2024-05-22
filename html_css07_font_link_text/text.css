@@ -1,0 +1,65 @@
+body {
+  text-indent: 30px;
+}
+
+.tcolor {
+  color: brown;
+  background-color: beige;
+}
+.alignProp {
+  border: 1px solid black;
+  width: 50%;
+  /* margin: auto; */
+}
+
+.alignment {
+  background-color: cornflowerblue;
+  text-align: center;
+}
+.decoration {
+  text-decoration: overline underline wavy 3px blue;
+  line-height: 2rem;
+  /* =32px */
+}
+
+a {
+  text-decoration: none;
+  background-color: brown;
+  color: aliceblue;
+  padding: 10px;
+  margin: 10px;
+}
+.trans {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.indent {
+  text-indent: 50px;
+}
+
+.letter {
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.word-spacing {
+  word-spacing: 10px;
+}
+
+.line {
+  background-color: gold;
+  line-height: 3;
+}
+
+.shadow {
+  margin: 20px;
+  line-height: 25px;
+  text-shadow: 7px 7px 3px rgb(168, 4, 4);
+}
+.boxShadow {
+  background-color: rgba(243, 155, 103, 0.918);
+  width: 60%;
+  margin: auto;
+  box-shadow: 10px 10px 4px purple;
+}

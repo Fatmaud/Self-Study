@@ -1,0 +1,80 @@
+body,
+header,
+main,
+article,
+aside,
+footer {
+  /* border: 2px solid black; */
+  border-radius: 20px;
+  text-align: center;
+}
+
+main {
+  background-color: skyblue;
+  /* height: 300px; */
+}
+header {
+  background-color: seagreen;
+}
+
+aside {
+  background-color: darkorange;
+  width: 25%;
+  height: 300px;
+  margin-left: 10px;
+  float: left;
+}
+article {
+  background-color: greenyellow;
+  width: 70%;
+  height: 300px;
+  float: left;
+}
+
+footer {
+  background-color: coral;
+}
+
+/* .clear {
+  clear: both;
+} */
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* OVERFLOW */
+.box {
+  border: 5px solid black;
+  margin-bottom: 4rem;
+  width: 20rem;
+  height: 4rem;
+  background-color: hotpink;
+}
+
+.box1 {
+  overflow: visible;
+}
+
+.box2 {
+  overflow: hidden;
+}
+
+.box3 {
+  overflow: scroll;
+}
+.box3::-webkit-scrollbar {
+  /* width: 0; */
+  /* scroll olsun ama scrollbar görünmesin istersen bu cod blogunu kullanip width 0 yapacaksin */
+}
+.box4 {
+  overflow: auto;
+  /* auto da scroll eger scroll icin metin kaliyorsa otomatik eklenir */
+}
+
+.box5 {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

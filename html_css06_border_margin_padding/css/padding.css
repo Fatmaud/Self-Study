@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 1px solid brown;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: indianred;
+  margin: 10px;
+}
+.box1 {
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+/* dive padding verince divin hacmi artar, icerigine padding verince icerigin hacmi artar. box2 padding le .box2 p padding farki */
+.box2 p {
+  background-color: darkseagreen;
+  padding: 20px;
+}
+
+.box3 {
+  background-color: cyan;
+  padding: 10px;
+  border: 10px solid gray;
+}
+
+/* box3 box-sizing default olarak content, box4 te bunu border-box a cevirince padding box boyutunu etkilemedi. */
+.box4 {
+  box-sizing: border-box;
+  background-color: plum;
+  padding: 10px;
+  border: 10px solid gray;
+}

@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
+.app {
+  background-color: rgb(224, 208, 208);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.banana {
+  font-family: "Nova Square", sans-serif;
+  background-color: indianred;
+}
+
+.orange {
+  font-family: "Ephesis", cursive;
+  background-color: rgb(88, 226, 88);
+}
+.variant_font {
+  font-variant: small-caps;
+  font-weight: 900;
+  background-color: darkgoldenrod;
+}

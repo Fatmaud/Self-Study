@@ -1,0 +1,35 @@
+body {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 240, 45, 1) 100%,
+    rgba(253, 240, 45, 1) 160%
+  );
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.box1 {
+  /* isim ile renk kullanimi */
+  background-color: maroon;
+  color: antiquewhite;
+}
+.box2 {
+  /* rgb ile renk kullanimi */
+  background-color: rgb(14, 149, 104);
+}
+.box3 {
+  /* rgb-alpha degeri alpha 0-1 arasi deger alir, opacity 1 de en fazla */
+  background-color: rgba(12, 230, 80, 0.3);
+}
+.box4 {
+  /* hexadecimal deger kullanimi */
+  background-color: #2345ef;
+}
+.box5 {
+  background-color: #e51a59;
+  color: ;
+}
+.box6 {
+  background-color: hsla(440, 40%, 20%);
+}

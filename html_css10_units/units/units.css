@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  height: 70vh;
+}
+.abs {
+  background-color: coral;
+  width: 200px;
+}
+
+.div2 {
+  background-color: crimson;
+  width: 50%;
+  height: 50%;
+}
+.div3 {
+  background-color: aqua;
+  width: 50%;
+  height: 50%;
+}
+.div4 {
+  background-color: orangered;
+  width: 70vw;
+  height: 20vh;
+}
+
+.div5 {
+  font-size: 25px;
+}
+
+.div6 {
+  font-size: 2em;
+}
+
+.div7 {
+  font-size: 2em;
+}
+
+.div8 {
+  font-size: 20px;
+}
+.div9 {
+  font-size: 3rem;
+}
+.div10 {
+  font-size: 3rem;
+}

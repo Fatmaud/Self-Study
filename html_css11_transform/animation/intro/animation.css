@@ -1,0 +1,56 @@
+.outer {
+  width: 400px;
+  height: 400px;
+  background-color: slateblue;
+  animation-name: big;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 5s;
+}
+
+@keyframes big {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.inner {
+  width: 200px;
+  height: 200px;
+  background-color: brown;
+  animation-name: upanddown;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 10s;
+  animation-fill-mode: both;
+}
+
+@keyframes upanddown {
+  0% {
+    background-color: darksalmon;
+    border-radius: 50%;
+    transform: translate(0);
+  }
+  25% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

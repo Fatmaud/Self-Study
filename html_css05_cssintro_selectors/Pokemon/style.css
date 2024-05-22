@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  border: 0;
+}
+
+body {
+  font-family: Tahoma;
+}
+header {
+  height: 40px;
+  background-color: rgb(246, 89, 50);
+  text-align: center;
+}
+h4 {
+  width: 120px;
+  height: 20px;
+  color: white;
+  border: 4px solid white;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+
+.banner {
+  position: relative;
+}
+nav {
+  background-color: #f4f4f4;
+  padding: 20px;
+  position: sticky;
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #4b4b4b;
+  padding-right: 70px;
+  font-size: 24px;
+  box-sizing: border-box;
+}
+
+article {
+  max-width: 100%;
+  width: 1200px;
+  padding: 0 40px;
+  margin: 80px auto;
+  font-size: 24px;
+}
+
+.images {
+  text-align: center;
+  margin: 80px 0;
+  white-space: nowrap;
+}
+.images li {
+  display: inline-block;
+  list-style-type: none;
+  width: 40%;
+  margin: 20px 5%;
+  position: relative;
+}
+
+.images li:hover {
+  top: -4;
+}
+.images li img {
+  /* max-width: 100%; */
+  width: 100%;
+}
+
+section .join h2 {
+  font-size: 36px;
+}
+section.join {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 30px 20px;
+  color: #4b4b4b;
+}
+
+form input {
+  margin: 20px 0;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 28px;
+  border: 2px solid white;
+}
+
+/* form input:focus {
+  border: 4px dashed #4b4b4b;
+  outline: none;
+}
+form input:valid {
+  border: 4px solid #71d300;
+} */
+
+footer {
+  background-color: rgb(246, 89, 50);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* responsive styles */
+/* @media screen and (max-width: 1400px) {
+  .banner .welcome {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .banner .welcome {
+    font-size: 28px;
+  }
+  nav li {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .banner .welcome {
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+  }
+  .banner .welcome br {
+    display: none;
+  }
+  .banner .welcome span {
+    font-size: 1em;
+  }
+  nav li {
+    font-size: 18px;
+  }
+  .images li {
+    width: 100%;
+    display: block;
+    margin: 20px auto;
+  }
+}
+@media screen and (max-width: 560px) {
+  .banner .welcome {
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+  }
+  .banner .welcome br {
+    display: none;
+  }
+  .banner .welcome span {
+    font-size: 1em;
+  }
+  nav li {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+  }
+  article h2 {
+    font-size: 36px;
+  }
+  header,
+  nav {
+    position: relative;
+    top: 0;
+  }
+} */

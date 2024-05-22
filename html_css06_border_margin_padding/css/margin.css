@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  /* border: 1px solid red; */
+}
+h1 {
+  background-color: cadetblue;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+.parag1 {
+  background-color: chocolate;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+.parag2 {
+  background-color: rgb(214, 214, 45);
+  margin: 40px 10px 20px 5px;
+}
+.parag3 {
+  background-color: darksalmon;
+  /* width eklemeden margin-auto düzgün calismadi */
+  width: 200px;
+  margin: auto;
+}
+
+/* resim kendi halinde marjin auto ile ortalanmadi, div icine alip width verince oldu. img ye de width eklendi */
+
+.imgcontainer {
+  width: 50%;
+  margin: auto;
+}
+img {
+  width: 100%;
+  height: 300px;
+}
+.overlap {
+  color: white;
+  margin-top: -200px;
+  margin-bottom: 200px;
+  text-align: right;
+}

@@ -1,0 +1,27 @@
+div p {
+  /* background-color: magenta; */
+}
+
+.container div p {
+  /* background-color: red; */
+}
+
+.box p {
+  /* background-color: olivedrab; */
+}
+
+div + p {
+  /* background-color: fuchsia; */
+}
+
+div ~ p {
+  /* background-color: aqua; */
+}
+
+h2[title="baslik1"] {
+  background-color: blueviolet;
+}
+
+p[title="paragraf1"] {
+  background-color: aquamarine;
+}

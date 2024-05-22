@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  font-family: fantasy;
+  font-size: 3rem;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 20% 40% 20% 20%;
+  grid-template-columns: 30% 50% 20%;
+  grid-template-areas:
+    "header header header"
+    "main main aside"
+    "footer footer footer"
+    "footer footer footer";
+}
+
+.box {
+  border: 1px solid red;
+  background-color: blanchedalmond;
+  color: brown;
+}
+
+.box1 {
+  background-color: cadetblue;
+  grid-area: header;
+  text-align: center;
+}
+.box2 {
+  background-color: rgb(121, 171, 72);
+  grid-area: main;
+}
+.box3 {
+  background-color: rgb(193, 55, 83);
+  grid-area: aside;
+}
+.box4 {
+  background-color: rgb(216, 121, 53);
+  grid-area: footer;
+}

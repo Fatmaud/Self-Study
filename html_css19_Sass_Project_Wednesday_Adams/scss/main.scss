@@ -1,0 +1,31 @@
+@import "./abstract/mixins";
+@import "./abstract/variables";
+@import "./base/reset";
+@import "./components/footer";
+@import "./components/nav";
+@import "./pages/about";
+@import "./pages/contact";
+@import "./pages/home";
+@import "./pages/project";
+@import "./components/responsive"; //!responsive in calismasi icin partial importlari icinde en sona eklenmesi gerekiyor. Yoksa calismaz. En son eklenen kod en gecerli kod!!!//
+//fontawesome//
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css);
+
+body {
+  font-family: $fontFamily;
+  color: $textColor;
+  background-color: $primaryColor;
+  height: 100vh;
+  line-height: 1;
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}

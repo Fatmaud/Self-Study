@@ -1,0 +1,109 @@
+.yazi {
+  width: 50vw;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* transform-rotate 
+rotate icin degree olarak deger verilir. 90 ve 270 deg yazilar tam dik olduklarindan ve 3 boyutlu bakamadigimizdan görünmezler */
+.yazi1 {
+  background-color: aqua;
+  transform: rotateX(180deg);
+}
+.yazi2 {
+  background-color: cornflowerblue;
+  transform: rotateY(180deg);
+}
+.yazi3 {
+  background-color: fuchsia;
+  /* transform: rotate(-45deg); */
+}
+
+.yazi3:active {
+  background-color: fuchsia;
+  transform: rotate(-45deg);
+}
+
+/* transform-scale */
+.yazi4 {
+  background-color: seagreen;
+  transform: rotate(-45deg) scaleX(0.5);
+}
+.yazi5 {
+  background-color: violet;
+  /* transform: scaleY(3); */
+}
+.yazi5:active {
+  background-color: violet;
+  transform: scaleY(3);
+}
+.yazi6 {
+  background-color: darkgoldenrod;
+}
+
+.yazi6:active {
+  background-color: darkgoldenrod;
+  /* transform: scale(2); */
+  transform: rotate(-45deg) scale(3);
+  cursor: pointer;
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background-color: crimson;
+  margin: 2px;
+}
+.x {
+  transform: translateX(40px);
+}
+.y:active {
+  transform: translate(150px);
+  background-color: magenta;
+}
+
+.xy {
+  /* transition-property: transform; */
+}
+.xy:active {
+  transform: translate(50px 50px);
+  background-color: orange;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(119, 78, 1);
+  font-size: 3rem;
+  color: antiquewhite;
+  text-align: center;
+}
+
+.box1:active {
+  background-color: blue;
+
+  transform: translate(50px, 200px);
+}
+
+.box2 {
+  scale: 0.5;
+  transform: rotateY(180deg);
+}
+.box3 {
+  scale: 0.3;
+  transform: skewY(20deg);
+}
+.box4 {
+  /* translate: 150px;
+  transform: rotate(180deg); */
+}
+
+.box4:hover {
+  transform: translate(200px);
+}
+.box5:active {
+  background-color: blue;
+
+  transform: translate(50px, 200px);
+}
