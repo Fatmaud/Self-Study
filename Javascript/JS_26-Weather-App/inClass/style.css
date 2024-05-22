@@ -1,0 +1,8 @@
+body {
+  /* background-color: #0f0f0fa1; */
+  color: white;
+  background-image: url("./assets/pexels-photo-209831.webp"); /* Specify the path to your image */
+  background-size: cover; /* Cover the entire background */
+  background-repeat: no-repeat; /* Don't repeat the background image */
+  background-attachment: fixed; /* Fixed background */
+}
