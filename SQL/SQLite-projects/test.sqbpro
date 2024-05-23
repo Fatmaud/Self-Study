@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/fatma/Desktop/test.sqlite3" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2735"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainAlbum"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT * FROM Album;
+SELECT * FROM Customer WHERE Country=&quot;USA&quot;;
+SELECT * FROM Customer WHERE Country=&quot;Canada&quot;;
+SELECT * FROM Customer WHERE CustomerId=15;
+SELECT * FROM Customer;
+
+--Mark tan sonraki müsterileri listele--
+SELECT * FROM Customer WHERE FirstName=&quot;Mark&quot;; --önce Marki bulalim. 1. Markin idsi 14.
+SELECT * FROM Customer WHERE CustomerId&gt;14; --Marktan sonraki müsteriler
+SELECT * FROM Customer WHERE CustomerId&gt;=14; --Mark ve sonraki müsteriler
+
+--Iki Mark arasindaki müsterileri getir--
+SELECT * FROM Customer WHERE FirstName=&quot;Mark&quot;; --Mark lari listele
+SELECT * FROM Customer WHERE CustomerId&gt;14;
+SELECT * FROM Customer WHERE CustomerId&lt;55;
+SELECT * FROM Customer WHERE CustomerId BETWEEN 14 AND 55;--üstteki iki komutu birlestirdik
+
+--USA da olmayanlari getir--
+SELECT * FROM Customer WHERE Country=&quot;USA&quot;;
+SELECT * FROM Customer WHERE Country&lt;&gt;&quot;USA&quot;;
+SELECT * FROM Customer WHERE not Country=&quot;USA&quot;;
+SELECT * FROM Customer WHERE Country!=&quot;USA&quot;; --bu ve önceki iki komutla ayni sonuc elde ediliyor.
+
+--Canada ve Brezilyada yasayanlari getir--
+SELECT * FROM Customer WHERE Country=&quot;Canada&quot; or Country=&quot;Brazil&quot;;
+
+--SELECT * FROM Customer WHERE Country=&quot;Canada&quot; or Country=&quot;Brazil&quot; or Country=&quot;USA&quot;;
+SELECT * FROM Customer WHERE Country in (&quot;Canada&quot;, &quot;Brazil&quot;, &quot;USA&quot;);</sql><current_tab id="0"/></tab_sql></sqlb_project>

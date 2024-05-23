@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/fatma/Desktop/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="3862"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="albums" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="72"/><column index="2" value="300"/><column index="3" value="70"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">multi line comment
+*/
+--komut isimleri ve keywordler &quot;case insensitiv&quot;
+--SELECT neler gelecek FROM tablo ismi
+--SELECT * FROM invoices;
+--SELECT BillingCountry FROM invoices;
+--SELECT BillingCountry as FaturaUlkesi, InvoiceId FROM invoices;
+--SELECT DISTINCT BillingCountry FROM Invoices;
+
+SELECT * FROM Invoices where BillingCountry=&quot;Germany&quot; ; --fatura ülkesi almanya olanlari getir komutu
+
+SELECT * FROM Invoices where BillingCountry=&quot;USA&quot; and BillingCity=&quot;boston&quot; ; --buradan data gelmedi. komut icindeki degerler &quot;case sensitive&quot;.
+SELECT * FROM Invoices where BillingCountry=&quot;USA&quot; and BillingCity=&quot;Boston&quot;; --b yi büyük yazinca veri döndü.
+SELECT * FROM invoices WHERE BillingCountry=&quot;USA&quot; AND BillingCity=&quot;Boston&quot; AND Total&gt;5;
+SELECT * FROM invoices WHERE BillingCountry=&quot;USA&quot; or BillingCountry=&quot;Canada&quot;;
+SELECT * FROM invoices ORDER BY BillingCountry, BillingCity DESC; --order by default olarak ASC (ascending), DESC (descending) bir siralama istersek onu yazmamiz gerekir.
+
+SELECT * FROM customers;
+SELECT FirstName, LastName, Email FROM customers;
+SELECT FirstName, LastName, Email FROM customers WHERE FirstName=&quot;Edward&quot;;
+SELECT FirstName, LastName, Email FROM customers WHERE FirstName like &quot;E%&quot;; -- %e --&gt; isminin ilk harfi E olan
+SELECT FirstName, LastName, Email FROM customers WHERE FirstName like &quot;%e&quot;; -- e% --&gt; isminin son harfi E olan
+SELECT FirstName, LastName, Email FROM customers WHERE FirstName like &quot;%e%&quot;; --%e% --&gt; E harfi arada olan
+SELECT FirstName, LastName, Email FROM customers WHERE FirstName like &quot;_e&amp;r&quot;; --_e%r --&gt; 2. karakter e ve son karakteri r olan// her lat tire bir karakter
+SELECT * FROM customers WHERE Email like &quot;%@gmail%&quot;; --&gt; emaili gmail olanlar
+
+SELECT * FROM invoices where total&gt;3.96 AND total&lt;6; -- &gt; büyüktür de ilk degeri dahil etmiyor, etmesi icin = kullanmaliyiz.
+SELECT * FROM invoices where total between 3 AND 5; --between de ilk degeri de dahil ediyor.
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
