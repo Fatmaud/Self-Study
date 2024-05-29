@@ -88,25 +88,64 @@
 // console.log(name, adi);
 
 //?Rest Opr.ile Object Birlestirme-Olusturma
-const Car = {
-  brand: "Toyota",
-  model: "Corolla",
+// const Car = {
+//   brand: "Toyota",
+//   model: "Corolla",
+// };
+
+// const Detail = {
+//   year: 2011,
+//   color: "red",
+// };
+
+// const CarDetail = {
+//   ...Car,
+//   ...Detail,
+// };
+
+// console.log(CarDetail);
+
+// const newCarDetail = {
+//   ...CarDetail,
+//   gear: "automatic",
+// };
+// console.log(newCarDetail);
+
+// //?Object to JSON
+// const json = JSON.stringify(newCarDetail); //object i stringe cevirdik. artik object icinde dolasamayiz-- "json.gear" calismaz.
+// console.log(json);
+
+// //?JSON to Object
+// const obj = JSON.parse(json); //json stringini objecte cevirdik
+// console.log(obj);
+// console.log(obj.gear);
+
+// //?Object to Array
+// //&Keys
+// const keysInArray = Object.keys(newCarDetail);
+// console.log(keysInArray);
+
+// //&Values
+// const valuesInArray = Object.values(newCarDetail);
+// console.log(valuesInArray);
+
+// //&Keys&Values Array
+// const objInArray = Object.entries(newCarDetail);
+// console.log(objInArray);
+
+//*-----Object Consructor--------*//
+const ConstructorFunction = function () {
+  this.property = "value";
+};
+//?New Keyword
+const CarConstructor = function (brand, model, year = 1973) {
+  (this.brand = brand),
+    (this.model = model),
+    (this.year = year),
+    (this.fullText = function () {
+      return this.brand + " " + this.model + " " + this.year;
+    });
 };
 
-const Detail = {
-  year: 2011,
-  color: "red",
-};
-
-const CarDetail = {
-  ...Car,
-  ...Detail,
-};
-
-console.log(CarDetail);
-
-const newCarDetail = {
-  ...CarDetail,
-  gear: "automatic",
-};
-console.log(newCarDetail);
+const NewCar = new CarConstructor("Toyota", "Corolla");
+console.log(NewCar);
