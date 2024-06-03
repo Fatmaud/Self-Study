@@ -37,3 +37,28 @@ const HOST = process.env.HOST || "127.0.0.1";
 //     //console.log("server is running");
 //   })
 //   .listen(PORT, () => console.log(`server runs http://${HOST}:${PORT}`));
+
+//&Status Kodlari ile dönüs ve methos kontrolü:
+//?Status mesajlarini istersek degistirebilliriz ama default un bozulmasi tavsiye edilmiyor!!!
+http
+  .createServer((req, res) => {
+    //if (req.url == "/" && req.method == "GET") {
+    if (req.url == "/") {
+      if (req.method == "GET") {
+        res.statusCode = 200;
+        res.end("Welcome CW");
+      } else {
+        res.statusCode = 403;
+        res.end("wrong CRUD method");
+      }
+    } else if (req.url == "/FS") {
+      res.end("Welcome FS");
+    } else if (req.url == "/CW/api") {
+      res.end("Welcome api page");
+    } else {
+      res.statusCode = 404;
+      res.statusMessage = "belki";
+      res.end("<h1>no page</h1>");
+    }
+  })
+  .listen(PORT, () => console.log(`server runs http://${HOST}:${PORT}`));
