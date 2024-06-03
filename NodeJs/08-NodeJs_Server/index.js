@@ -2,7 +2,7 @@
 
 console.log("hi");
 
-//*NODE SERVER*//
+//*NODE.JS SERVER*//
 
 const http = require("node:http");
 
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8000;
 //http://localhost:8000 // domain
 const HOST = process.env.HOST || "127.0.0.1";
 
-//!Serverda hersey request le response arasinda olur. bu iki safha arasinda yazilan event/sart vs ifade eden herbir code blogu middleware dir.
+//!Serverda hersey request le response arasinda olur.
 
 //&Response mesajlari ile dönüs:
 //  http
@@ -40,6 +40,9 @@ const HOST = process.env.HOST || "127.0.0.1";
 
 //&Status Kodlari ile dönüs ve methos kontrolü:
 //?Status mesajlarini istersek degistirebilliriz ama default un bozulmasi tavsiye edilmiyor!!!
+
+//? *url=path*
+
 http
   .createServer((req, res) => {
     //if (req.url == "/" && req.method == "GET") {
@@ -52,7 +55,20 @@ http
         res.end("wrong CRUD method");
       }
     } else if (req.url == "/FS") {
+      res.writeHead(200, "success", {
+        myheader1: "comment1",
+        mycomment1: "comment1",
+      });
+      res.write("welcome ");
+      res.write("FullStack ");
       res.end("Welcome FS");
+    } else if (req.url == "/DS") {
+      const myObject = {
+        username: "user",
+        email: "email@cw.com",
+      }; //Object olusturup response la server a object gönderiyoruz.Bunu JSON formatina cevirerek yapiyrz.
+      //res.end("Welcome DS");
+      res.end(JSON.stringify(myObject));
     } else if (req.url == "/CW/api") {
       res.end("Welcome api page");
     } else {
@@ -61,4 +77,4 @@ http
       res.end("<h1>no page</h1>");
     }
   })
-  .listen(PORT, () => console.log(`server runs http://${HOST}:${PORT}`));
+  .listen(PORT, () => console.log(`server runs http://${HOST}:${PORT}`)); //listen eventi icin zorunlu olan parametre sadece PORT.
