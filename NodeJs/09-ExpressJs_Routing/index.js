@@ -64,12 +64,51 @@ const app = express();
 // })
 
 //?URL PARAMS
-app.get("/:userId/:productId", (req, res) => {
-  const { userId, productID } = req.params;
-  console.log(userId, productID);
-  res.send(req.params);
+// app.get("/:userId/:productId", (req, res) => {
+//   const { userId, productId } = req.params;
+//   // console.log(req);
+//   console.log(userId, productId);
+//   res.send(req.params);
+// });
+
+//*--------------------*//
+
+// app.get("/:userId/:productId", (req, res) => {
+//   const { userId, productId } = req.params;
+//   res.send({
+//     protocol: req.protocol,
+//     hostname: req.hostname,
+//     method: req.method,
+//     url: req.url,
+//     params: req.params,
+//     body: req.body,
+//     query: req.query,
+//     header: req.headers,
+//   });
+// });
+
+//?QUERY
+
+app.get("/", (req, res) => {
+  console.log(req.query);
+  res.send({ query: req.query });
+  console.log(req.query);
+});
+//*Yukardaki sorgulamanin adresi ve response u asagidaki gibi:
+//127.0.0.1:8000/?name=test&surname=user
+// {
+//   "query": {
+//     "name": "test",
+//     "surname": "user"
+//   }
+// }
+//*------------*/
+//!Dikkat:
+app.get("/", (req, res) => {
+  console.log(req.query);
+  res.send(true);
 });
 
-app.listen(PORT, () => {
+http: app.listen(PORT, () => {
   console.log(`Example app listening on port http://${HOST}:${PORT}`);
 });
