@@ -11,7 +11,7 @@ const sequelize = new Sequelize("sqlite:./db.sqlite3");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }
-})();//* IIFE
+})(); //* IIFE
 // sequelize
 //   .authenticate()
 //   .then(() => console.log("Db connected"))

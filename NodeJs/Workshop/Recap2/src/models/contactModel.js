@@ -2,9 +2,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../configs/db");
 
-//string ve text farki
-//boolean-tinyint
-
 const Contact = sequelize.define("contacts", {
   firstName: {
     type: DataTypes.STRING,
@@ -33,6 +30,8 @@ const Contact = sequelize.define("contacts", {
   },
 });
 
-sequelize.sync();
+// sequelize.sync()
 
-module.export = Contact;
+module.exports = Contact;
+//string ve text farki
+//boolean-tinyint
