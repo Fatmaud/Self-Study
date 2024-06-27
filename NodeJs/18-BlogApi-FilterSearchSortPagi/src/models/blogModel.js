@@ -7,10 +7,10 @@ const mongoose = require("mongoose");
 //     // fieldName: String, // shorthand
 //     fieldName: {
 //       type: String, // Veri Tipi
-//       default:true//veri gelmezse eklenecek deger
+//       default: "true", // Veri gelmezse eklenecek değer
 //       required: true, // Gelen veriden zorunlu olarak olsun mu ?
 //       required: [true, "Error-Message"], //* Hata mesajını özelleştirme
-//       trim: true, // string tipindeki bir alanın başında ve sonunda bulunan boşluk karakterlerinin     otomatik olarak kesilmesini sağlar. Bu, veri doğrulama ve temizleme işlemlerinde oldukça kullanışlıdır çünkü veri giriş hatalarını ve gereksiz boşlukları önler.
+//       trim: true, // Gelen veriyi trimden geçir
 //       unique: true, // Benzersiz olmalı
 //       index: true, // Daha hızlı erişim olsun mu ?
 //       select: true, // Data çağrıldığında bu alan gelsin mi gelmesin mi ?
@@ -30,14 +30,39 @@ const mongoose = require("mongoose");
 //     },
 //   },
 //   {
-//     collection: "collectionName",
-//     timestamps: true, // CreatedAt ve UpdatedAt auto
+//     collection:'collectionName',
+//     timestamps: true // CreatedAt ve UpdatedAt auto
 //   }
 // );
+
+const blogCategorySchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      trim: true,
+      required: true,
+      unique: true,
+    },
+  },
+  {
+    collection: "blogCategory",
+    timestamps: true,
+  }
+);
 
 const blogPostSchema = new mongoose.Schema(
   {
     // _id
+    userId: {
+      type: mongoose.Schema.Types.ObjectId, //ForeingKey, relationalId
+      required: true,
+      ref: "User",
+    },
+    blogCategoryId: {
+      type: mongoose.Schema.Types.ObjectId, //ForeingKey, relationalId
+      required: true,
+      ref: "BlogCategory",
+    },
     title: {
       type: String,
       trim: true,
@@ -50,30 +75,24 @@ const blogPostSchema = new mongoose.Schema(
     },
     published: {
       type: Boolean,
-      default: true, //"published" alani belirtilmediginde (yayinlanma durumu), otomatik olarak (default:true) yayinlanmis kabul edilecek
+      default: true,
     },
     // createdAt
     // updatedAt
   },
   {
-    collection: "BlogPosts",
+    collection: "blogPosts",
     timestamps: true,
   }
 );
 
-//*from https://mongoosejs.com/docs/models.html⬇️⬇️
-//*When you call mongoose.model() on a schema, Mongoose compiles a model for you.
-
-//* const schema = new mongoose.Schema({ name: String, size: String });
-//* const Tank = mongoose.model('Tank', schema);
-//*The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, lowercased version of your model name. Thus, for the example above, the model Tank is for the tanks collection in the database.
-
-//* Note: The .model() function makes a copy of schema. Make sure that you've added everything you want to schema, including hooks, before calling .model()!
-
 // const BlogPostModel = mongoose.model("BlogPost", blogPostSchema);
 
 // module.exports = {
-//   BlogPost: BlogPostModel,
-// };//? daha az kodla asagidaki exportu yapabiliriz:
+//     BlogPost:BlogPostModel
+// }
 
-module.exports = { BlogPost: mongoose.model("BlogPost", blogPostSchema) };
+module.exports = {
+  BlogPost: mongoose.model("BlogPost", blogPostSchema),
+  BlogCategory: mongoose.model("BlogCategory", blogCategorySchema),
+};

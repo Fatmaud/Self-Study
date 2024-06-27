@@ -9,15 +9,28 @@ const PORT = process.env.PORT;
 app.use(express.json());
 require("./src/configs/dbConnection");
 
+const session = require("cookie-session");
+app.use(
+  cookieSession({
+    secret: process.env.SECRET_KEY,
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  })
+);
+
 // HomePage:
 app.all("/", (req, res) => {
   res.send(
     "<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>"
   );
 });
-app.use("/blog", require("./src/routes/blogRoute")); //path "/blog" oldugunda blogRoute sayfasina git. Orada tanimlanan pathlari "/blog" sonuna ekle. calistir. Burada "/blog" blogRoute bir CRUD metoduyla tanimlanmadi, blogRoute sayfasindaki pathlarin baslangic yolu.--> "http://127.0.0.1:8000/blog/" hata döndürüyor
+
+app.use("/blog", require("./src/routes/blogRoute"));
+app.use("/user", require("./src/routes/user.route"));
 
 // errorHandler:
 app.use(require("./src/middlewares/errorHandler"));
 
 app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
+
+// require("./src/configs/sync")()
