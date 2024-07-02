@@ -7,6 +7,7 @@ const {
   BlogCategoryController,
 } = require("../controllers/blogController");
 
+//!base route=>"/blog" (=>category islemleri icin "/blog/categories"...)
 //*category
 router
   .route("/categories")
