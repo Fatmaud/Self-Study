@@ -53,7 +53,10 @@ module.exports.BlogCategoryController = {
 
 module.exports.BlogPostController = {
   list: async (req, res) => {
-    const data = await BlogPost.find({ published: true });
+    const data = await BlogPost.find({ published: true }).populate(
+      "blogCategoryId",
+      "name -_id"
+    ); //poulate() ilk parametrede refer edilen veriyi elimizdeki veriyle birlestirir. 2. parametrede, ilk önce hangi "key-value" yu istedgimizi, "-"den sonra da hangisinin exclude edilmesini istedigimizi yazariz. Cokomelli method :D. Burada blog category nin altinda bize sadece "name"ini getiriyor.
 
     res.status(200).send({
       error: false,

@@ -1,10 +1,8 @@
 "use strict";
-const { mongo } = require("mongoose");
 /* -------------------------------------------------------
     EXPRESS - Personnel API
 ------------------------------------------------------- */
 const { mongoose } = require("../configs/dbConnection");
-const { modelName } = require("./personnel.model");
 
 const TokenSchema = new mongoose.Schema(
   {
@@ -13,6 +11,7 @@ const TokenSchema = new mongoose.Schema(
       ref: "Personnel",
       required: true,
       index: true,
+      unique: true,
     },
     token: {
       type: String,
@@ -22,7 +21,10 @@ const TokenSchema = new mongoose.Schema(
       unique: true,
     },
   },
-  { collection: "tokens", timestamps: true }
+  {
+    collection: "tokens",
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("Token", TokenSchema);

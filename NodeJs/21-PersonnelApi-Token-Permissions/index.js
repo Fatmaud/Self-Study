@@ -37,22 +37,28 @@ app.use(express.json());
 //*Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
 
+app.use(require("./src/middlewares/authentication"));
+
 /* -------------------------------------------------------------------------- */
 /*                                   Routes                                   */
 /* -------------------------------------------------------------------------- */
 
 app.all("/", (req, res) => {
-  res.send("Welcome to the Personnel API");
+  // res.send("Welcome to the Personnel API")
+  res.send({
+    message: "Welcome to the Personnel API",
+    user: req.user,
+  });
 });
-
+// console.log("6682f675c85e532d286f602e"+Date.now())
 // app.use("/departments", require("./src/routes/department.router"));
 
 // app.use("/personnels", require("./src/routes/personnel.router"));
 
-// app.use("/tokens", require("./src/routes/token.router"));
+// app.use("/tokens",require("./src/routes/token.router"))
 
-app.use(require("./src/routes/index"));
-app.use(require("./src/routes")); //JS default olarak index adindaki dosyalari secer-öncelik verir. Dosyanin adi index se pathe dosyanin adini yazmasak da o kaynakta index dosyasi varsa direkt onu alir.
+// app.use(require("./src/routes/index"));
+app.use(require("./src/routes/"));
 
 //* eşleşmeyen routeları yakalar
 app.use((req, res, next) => {
@@ -71,3 +77,4 @@ app.use(require("./src/middlewares/errorHandler"));
 app.listen(PORT, () => console.log("http://127.0.0.1:" + PORT));
 
 /* ------------------------------------------------------- */
+// require("./src/helpers/sync")()

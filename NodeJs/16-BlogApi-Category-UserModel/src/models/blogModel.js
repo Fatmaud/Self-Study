@@ -57,7 +57,7 @@ const blogPostSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId, //ForeingKey, relationalId// buradaki id mongoDB deki objectId formatinda olacak, baska format kabul etmez.
       required: true,
       ref: "BlogCategory", //bu idnin gelecegi kaynagi yaziyoruz. BlogKategory modelinden gelecek.
-    }, //?Buradaki iliski tipi "One-to_Many": Bir blogCatId sini birden fazla blogla eslestirebuliriz. Bunu "one-to-one"a cevirmek icin "unique:true" özelligini eklememiz gerekir.
+    }, //?Buradaki iliski tipi "One-to-Many": Bir blogCatId sini birden fazla blogla eslestirebuliriz. Bunu "one-to-one"a cevirmek icin "unique:true" özelligini eklememiz gerekir.
     title: {
       type: String,
       trim: true,
