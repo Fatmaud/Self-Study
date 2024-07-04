@@ -3,7 +3,7 @@ const User = require("../models/user.model");
 //bir tane controller yazacgimiz icin, direkt module exports un icinde yazabiliriz:
 module.exports = {
   list: async (req, res) => {
-    const data = await User.find();
+    const data = await User.find().select("-password"); //istek attigimizda, select metodu ile passwordu getirmesini engelliyoruz.
     res.status(200).send({
       error: false,
       users: data, //data:data //gelen datayi front-ende gönder
