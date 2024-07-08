@@ -9,12 +9,17 @@ const PORT = process.env.PORT;
 app.use(express.json());
 require("./src/configs/dbConnection");
 
+/* ------------------------------------------------------- */
+// SessionCookies:
+// http://expressjs.com/en/resources/middleware/cookie-session.html
+// https://www.npmjs.com/package/cookie-session
+//* $ npm i cookie-session
+
 const session = require("cookie-session");
 app.use(
-  cookieSession({
+  session({
     secret: process.env.SECRET_KEY,
-    // Cookie Options
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    //maxAge: 1000*60*60*24*3,//miliseconds//3 days
   })
 );
 

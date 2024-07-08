@@ -52,14 +52,13 @@ module.exports = {
       // const user = await User.findOne({email:email})
       const user = await User.findOne({ email });
       if (user) {
-        // console.log("db: ", user.password)
-        // console.log("user: ",passwordEncrpyt(password));
+        // console.log("db: ", user.password);
+        // console.log("user: ", passwordEncrpyt(password));
         if (user.password == passwordEncrpyt(password)) {
-          req.session = {
-            email: user.email,
-            password: user.password,
-          };
-
+          // req.session = {
+          //   email: user.email,
+          //   password: user.password,
+          // };
           res.status(200).send({
             error: false,
             message: "Login Ok!",
@@ -67,15 +66,12 @@ module.exports = {
           });
         } else {
           res.errorStatusCode = 401;
-          throw new Error("Login parameters not true!");
+          throw new Error("User not found!");
         }
       } else {
         res.errorStatusCode = 401;
-        throw new Error("User not found!");
+        throw new Error("Email and password are required!");
       }
-    } else {
-      res.errorStatusCode = 401;
-      throw new Error("Email and password are required!");
     }
   },
   logout: (req, res) => {},
