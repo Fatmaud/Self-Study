@@ -46,7 +46,7 @@ module.exports = {
     }
   },
   login: async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, remindMe } = req.body;
 
     if (email && password) {
       // const user = await User.findOne({email:email})
@@ -59,6 +59,16 @@ module.exports = {
           //   email: user.email,
           //   password: user.password,
           // };
+          req.session.email = user.email;
+          req.session.password = user.password;
+          req.session.id = user._id;
+
+          if (remindMe) {
+            req.session.remindMe = remindMe;
+            //* sessionu cookieye çeviriyoruz. Verdiğimiz süre kadar erişim sağlanır
+            req.sessionOptions.maxAge = 1000 * 60 * 60 * 24 * 3;
+          }
+
           res.status(200).send({
             error: false,
             message: "Login Ok!",
@@ -74,5 +84,11 @@ module.exports = {
       }
     }
   },
-  logout: (req, res) => {},
+  logout: (req, res) => {
+    req.session = null;
+    res.status(200).send({
+      error: false,
+      message: "Logout Ok!",
+    });
+  },
 };

@@ -35,9 +35,9 @@ app.all("/", (req, res) => {
     res.send({
       message: "Welcome to BlogApi",
       session: req.session,
-      user: req.user
+      user: req.user,
     });
-  }else {
+  } else {
     res.send({
       message: "Welcome to BlogApi",
       session: req.session,
@@ -53,4 +53,4 @@ app.use(require("./src/middlewares/errorHandler"));
 
 app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
 
-// require("./src/configs/sync")()
+//require("./src/configs/sync")();

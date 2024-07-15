@@ -1,13 +1,31 @@
+// const {BlogPost,BlogCategory} = require("../models/blogModel")
+
+// module.exports = async () => {
+
+//     const blogCategory = await BlogCategory.findOne()
+//     console.log(blogCategory._id)
+//     if(blogCategory) {
+//       await BlogPost.updateMany(
+//           {
+//             blogCategoryId: { $exists: false }, // blogCategoryId alanı olmayanları getir ve onlara blogCategoryId ataması yap
+//           },
+//           {
+//             blogCategoryId: blogCategory._id,
+//           }
+//         );
+//     }
+//     console.log("**Synchronized!**")
+// }
 const User = require("../models/user.model");
 const { BlogCategory, BlogPost } = require("../models/blogModel");
 
 module.exports = async () => {
-  await User.deleteMany().then(() => console.log(" - User Deleted All"));
+  await User.deleteMany().then(() => console.log(" - All Users Deleted "));
   await BlogCategory.deleteMany().then(() =>
-    console.log(" - BlogCategory Deleted All")
+    console.log(" -All BlogCategories Deleted ")
   );
   await BlogPost.deleteMany().then(() =>
-    console.log(" - BlogPost Deleted All")
+    console.log(" - All BlogPosts Deleted ")
   );
 
   const users = [];

@@ -2,7 +2,11 @@
 
 const router = require("express").Router();
 
-const { BlogPostController,BlogCategoryController } = require("../controllers/blogController");
+const {
+  BlogPostController,
+  BlogCategoryController,
+} = require("../controllers/blogController");
+const isAuth = require("../middlewares/isAuth");
 
 //! base route => /blog
 //*category
@@ -24,13 +28,12 @@ router
 router
   .route("/post/many")
   .post(BlogPostController.createMany)
-  .delete(BlogPostController.deleteMany);  
+  .delete(BlogPostController.deleteMany);
 router
   .route("/post/:id")
+  //.all(isAuth)//bu middlewarein bu route taki tüm islemlerde gecerli omasini isteseydik, burada cagiracaktik.
   .get(BlogPostController.read)
   .put(BlogPostController.update)
-  .delete(BlogPostController.delete);
-
-
+  .delete(isAuth, BlogPostController.delete);
 
 module.exports = router;

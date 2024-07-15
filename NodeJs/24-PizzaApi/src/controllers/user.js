@@ -14,6 +14,7 @@ module.exports = {
       data,
     });
   },
+  //! CRUD(Create-Read-Update-Delete)
   create: async (req, res) => {
     const data = await User.create(req.body);
     res.status(201).send({
@@ -40,10 +41,10 @@ module.exports = {
   },
   delete: async (req, res) => {
     const data = await User.deleteOne({ _id: req.params.id });
-    res.status(data.deletedCound ? 204 : 404).send({
+    res.status(data.deletedCount ? 204 : 404).send({
       error: !data.deletedCount,
       data,
-      message: "User not found",
+      message: "User not found!",
     });
   },
 };

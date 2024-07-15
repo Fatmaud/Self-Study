@@ -1,6 +1,6 @@
 //*Blog Controller
 require("express-async-errors"); //* hata fırlatmak
-const { BlogPost,BlogCategory } = require("../models/blogModel");
+const { BlogPost, BlogCategory } = require("../models/blogModel");
 
 module.exports.BlogCategoryController = {
   list: async (req, res) => {
@@ -53,10 +53,59 @@ module.exports.BlogCategoryController = {
 
 module.exports.BlogPostController = {
   list: async (req, res) => {
-    const data = await BlogPost.find({ published: true }).populate(
-      "blogCategoryId",
-      "name -_id"
-    ); //* ilk parametre alanın adı. Eğer istemdğimiz alanlar varsa bunları belirtebiliriz. istedğimiz veya istemediğimiz alanları aralara boşluk koyarak ekleyebiliriz . İstemediğimiz alanların başına "-" koyarak bunları getirme diyebiliriz.
+    //!Filtering:
+    // URL?filter[key1]=value1&filter[key2]=value2 => url array parameter
+    //console.log(req.query);
+    const filter = req.query?.filter || {};
+    console.log("filter:", filter);
+
+    //!Searching:
+    // URL?search[key1]=value1&search[key2]=value2 => url array parameter
+    const search = req.query?.search || {};
+    console.log("search:", search);
+    //* { title: 'Testuser1', content: 'Testuser' } => { title: {$regex:'Testuser1'}, content:{ $regex: 'Testuser'} }ilk ifadeyi 2.ye cevirmek istiyoruz:⬇️⬇️
+    for (let key in search) {
+      //search[("title", "content")] = { $regex: search["title"] };
+      search[key] = { $regex: search[key] };
+      console.log("search2:", search);
+    }
+
+    //!Sorting:
+    //https://mongoosejs.com/docs/api/query.html#Query.prototype.sort()
+    // URL?sort[key1]=value1&sort[key2]=value2 => url array parameter
+    // "1" for asc. sorting and "-1" for decs. sorting are deprecated.
+    //asc=>A-Z vs. desc=>Z-A
+    const sort = req.query?.sort || {};
+
+    //!Pagination:
+    // url?page=3&limit=10
+    // => mongoose da skip() ve limit () metodlari ile pagination yapiyoruz:
+
+    //!Limit()
+    let limit = Number(req.query?.limit);
+    limit = limit > 0 ? limit : 10;
+    console.log(typeof limit, limit);
+
+    //!Page:
+    let page = Number(req.query?.page);
+    //page = page > 0 ? page : 1;
+    page = page > 0 ? page - 1 : 0;
+
+    console.log(page);
+
+    //!Skip:(atlanacak veri sayisi) biz paginationi yönetmek icin kullanacagiz.
+    let skip = Number(req.query?.skip);
+    skip = skip > 0 ? skip : page * limit; //page*limit mantigi=eger atlanacak veri sayisi girilmemisse olugum sayfadaki veri kadar veri atla.
+    console.log(skip);
+    const data = await BlogPost.find({ ...filter, ...search })
+      .sort(sort)
+      .limit(limit)
+      .skip(skip);
+
+    // const data = await BlogPost.find({ published: true }).populate(
+    //   "blogCategoryId",
+    //   "name -_id"
+    // ); //* ilk parametre alanın adı. Eğer istemdğimiz alanlar varsa bunları belirtebiliriz. istedğimiz veya istemediğimiz alanları aralara boşluk koyarak ekleyebiliriz . İstemediğimiz alanların başına "-" koyarak bunları getirme diyebiliriz.
 
     res.status(200).send({
       error: false,
@@ -76,7 +125,9 @@ module.exports.BlogPostController = {
     // const data = await BlogPost.findById(req.params.id); //* sadce id secenegini kabul eder.
     // const data = await BlogPost.findOne({published: false });
     // const data = await BlogPost.findOne({ _id: req.params.id }); //* diğer seçenekleri de kabul eder.
-    const data = await BlogPost.findOne({ _id: req.params.id }).populate("blogCategoryId");
+    const data = await BlogPost.findOne({ _id: req.params.id }).populate(
+      "blogCategoryId"
+    );
     res.status(200).send({
       error: false,
       blog: data,

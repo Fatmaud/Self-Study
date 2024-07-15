@@ -23,11 +23,28 @@ app.use(
   })
 );
 
+//* user control:
+app.use(require("./src/middlewares/userControl"));
+
 // HomePage:
+// app.all("/", (req, res) => {
+//   res.send(
+//     "<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>"
+//   );
+// });
 app.all("/", (req, res) => {
-  res.send(
-    "<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>"
-  );
+  if (req.isLogin) {
+    res.send({
+      message: "Welcome to BlogApi",
+      session: req.session,
+      user: req.user,
+    });
+  } else {
+    res.send({
+      message: "Welcome to BlogApi",
+      session: req.session,
+    });
+  }
 });
 
 app.use("/blog", require("./src/routes/blogRoute"));
