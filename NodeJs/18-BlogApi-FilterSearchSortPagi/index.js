@@ -12,7 +12,7 @@ require("./src/configs/dbConnection");
 // SessionCookies:
 // http://expressjs.com/en/resources/middleware/cookie-session.html
 // https://www.npmjs.com/package/cookie-session
-//* $ npm i cookie-session
+//? $ npm i cookie-session
 
 const session = require("cookie-session");
 
@@ -22,11 +22,17 @@ app.use(
     // maxAge: 1000 * 60 * 60 * 24 * 3 // miliseconds // 3 days
   })
 );
+/* ------------------------------------------------------- */
 
 //? user control
 app.use(require("./src/middlewares/userControl"));
+/* ------------------------------------------------------- */
 
-// HomePage:
+//?Filter,Search,Sort and Pagination
+app.use(require("./src/middlewares/findSearchSortPagi"));
+/* ------------------------------------------------------- */
+
+//? HomePage:
 // app.all('/', (req, res) => {
 //     res.send("<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>");
 // })
@@ -47,10 +53,13 @@ app.all("/", (req, res) => {
 
 app.use("/blog", require("./src/routes/blogRoute"));
 app.use("/user", require("./src/routes/user.route"));
+/* ------------------------------------------------------- */
 
-// errorHandler:
+//? errorHandler:
 app.use(require("./src/middlewares/errorHandler"));
+/* ------------------------------------------------------- */
 
 app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
 
+//? syncronizer:
 //require("./src/configs/sync")();
