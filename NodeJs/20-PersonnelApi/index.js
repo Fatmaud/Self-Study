@@ -41,13 +41,13 @@ app.use(require("./src/middlewares/findSearchSortPagi"));
 /*                                   Routes                                   */
 /* -------------------------------------------------------------------------- */
 
-app.all("/", (req, res) => {
-  res.send("Welcome to the Personnel API");
-});
+// app.all("/", (req, res) => {
+//   res.send("Welcome to the Personnel API");
+// });
 
-app.use("/departments", require("./src/routes/department.router"));
+// app.use("/departments", require("./src/routes/department.router"));
 
-app.use("/personnels", require("./src/routes/personnel.router"));
+// app.use("/personnels", require("./src/routes/personnel.router"));
 
 /* ------------------------------------------------------- */
 

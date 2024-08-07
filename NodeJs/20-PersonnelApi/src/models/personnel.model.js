@@ -1,9 +1,9 @@
-"use strict";
+"use strict"
 /* -------------------------------------------------------
     EXPRESS - Personnel API
 ------------------------------------------------------- */
-const { mongoose } = require("../configs/dbConnection");
-const passwordEncrypt = require("../helpers/passwordEncrypt");
+const { mongoose } = require('../configs/dbConnection');
+const passwordEncrypt = require('../helpers/passwordEncrypt');
 /* ------------------------------------------------------- */
 
 const PersonnelSchema = new mongoose.Schema(
@@ -77,9 +77,9 @@ const PersonnelSchema = new mongoose.Schema(
       default: false,
     },
     startedAt: {
-      type: Date,
-      default: Date.now(),
-    },
+        type: Date,
+        default: Date.now(),
+    }
   },
   {
     collection: "personnel",
@@ -87,4 +87,4 @@ const PersonnelSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Personnel", PersonnelSchema);
+module.exports = mongoose.model("Personnel",PersonnelSchema)

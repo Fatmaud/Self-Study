@@ -1,8 +1,8 @@
-"use strict";
+"use strict"
 /* -------------------------------------------------------
     EXPRESS - Personnel API
 ------------------------------------------------------- */
-const router = require("express").Router();
+const router = require('express').Router()
 /* ------------------------------------------------------- */
 
 const personnel = require("../controllers/personnel.controller");
@@ -21,4 +21,4 @@ router
   .delete(personnel.delete);
 
 /* ------------------------------------------------------- */
-module.exports = router;
+module.exports = router
